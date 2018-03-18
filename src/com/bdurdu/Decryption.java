@@ -9,6 +9,7 @@ public class Decryption extends Security{
 
     public Decryption(BufferedImage mainImage) {
 
+        mod5LenControl();
         mod5 = new Mod5(mainImage);
         mod5.getLength(getWidthPixel(), getHeightPixel());
 

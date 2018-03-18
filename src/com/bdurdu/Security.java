@@ -32,14 +32,14 @@ public class Security  implements Rules{
             tempMax /= 5;
             count++;
         }
-        widthPixel = count;
+        setWidthPixel(count);
         count = 0;
         tempMax = maxHeight;
         while(tempMax > 0) {
             tempMax /= 5;
             count++;
         }
-        heightPixel = count;
+        setHeightPixel(count);
     }
 
     @Override

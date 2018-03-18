@@ -27,10 +27,6 @@ public class MyColor {
         return (alpha<<24) | (red<<16) | (green<<8) | blue;
     }
 
-    public int getPixel() {
-        return pixel;
-    }
-
     public void setPixel(int pixel) {
         this.pixel = pixel;
         setRgbPixel();

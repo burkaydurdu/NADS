@@ -37,6 +37,9 @@ public class Mod5 {
         colorR1 = new MyColor();
         colorR2 = new MyColor();
 
+        hiddenImageWidth = 0;
+        hiddenImageHeight = 0;
+
         setMainArray();
     }
 
@@ -63,8 +66,8 @@ public class Mod5 {
             newValue = setImage(colorR1.getRed(), colorR2.getRed() , widKey[i]);
             colorR1.setRed(newValue[0]);
             colorR2.setRed(newValue[1]);
-            mainArray[currentCount] = colorR1.getPixel();
-            mainArray[currentCount + 1] = colorR2.getPixel();
+            mainArray[currentCount] = colorR1.intPixel();
+            mainArray[currentCount + 1] = colorR2.intPixel();
             currentCount += 2;
         }
 
@@ -74,8 +77,8 @@ public class Mod5 {
             newValue = setImage(colorR1.getRed(), colorR2.getRed() , heiKey[j]);
             colorR1.setRed(newValue[0]);
             colorR2.setRed(newValue[1]);
-            mainArray[currentCount] = colorR1.getPixel();
-            mainArray[currentCount + 1] = colorR2.getPixel();
+            mainArray[currentCount] = colorR1.intPixel();
+            mainArray[currentCount + 1] = colorR2.intPixel();
             currentCount += 2;
         }
     }
@@ -147,41 +150,43 @@ public class Mod5 {
             colorR1.setBlue(newValue[0]);
             colorR2.setBlue(newValue[1]);
 
-            mainArray[currentCount] = colorR1.getPixel();
-            mainArray[currentCount + 1] = colorR2.getPixel();
+            mainArray[currentCount] = colorR1.intPixel();
+            mainArray[currentCount + 1] = colorR2.intPixel();
 
             currentCount += 2;
         }
     }
 
     void setDecryption() {
-        int red = 0;
-        int green = 0;
-        int blue = 0;
+        int red, green, blue;
         int count;
         for (int i = 0; i < hiddenArray.length; i++) {
+            red = 0;
+            green = 0;
+            blue = 0;
             count = 0;
-            while (count++ < 4) {
+            while (count < 4) {
                 colorR1.setPixel(mainArray[currentCount]);
                 colorR2.setPixel(mainArray[currentCount + 1]);
                 red += ((colorR1.getRed() + colorR2.getRed() * 2)
                         % 5)
-                        * (int) Math.pow(5, i);
+                        * (int) Math.pow(5, count);
                 green += ((colorR1.getGreen() + colorR2.getGreen() * 2)
                         % 5)
-                        * (int) Math.pow(5, i);
+                        * (int) Math.pow(5, count);
                 blue += ((colorR1.getBlue() + colorR2.getBlue() * 2)
                         % 5)
-                        * (int) Math.pow(5, i);
+                        * (int) Math.pow(5, count);
+                count++;
                 currentCount += 2;
             }
             color.setRed(red);
             color.setGreen(green);
             color.setBlue(blue);
-            hiddenArray[i] = color.getPixel();
+            hiddenArray[i] = color.intPixel();
         }
     }
-    public BufferedImage getEncryptionImage() {
+    BufferedImage getEncryptionImage() {
         int count = 0;
         for(int y = 0; y < mainImage.getHeight(); y++)
             for(int x = 0; x < mainImage.getWidth(); x++) {
@@ -190,9 +195,9 @@ public class Mod5 {
         return mainImage;
     }
 
-    public BufferedImage setDecryptionImage() {
+    BufferedImage setDecryptionImage() {
         int count = 0;
-        BufferedImage hiddenImage = new BufferedImage(hiddenImageWidth, hiddenImageHeight, BufferedImage.TYPE_INT_ARGB);
+        BufferedImage hiddenImage = new BufferedImage(hiddenImageWidth, hiddenImageHeight, BufferedImage.TYPE_INT_RGB);
         for(int y = 0; y < hiddenImageHeight; y++)
             for(int x = 0; x < hiddenImageWidth; x++) {
                 hiddenImage.setRGB(x, y, hiddenArray[count++]);
@@ -215,22 +220,6 @@ public class Mod5 {
             }
         }
         return result;
-    }
-
-    public int[] getKR() {
-        return KR;
-    }
-
-    public int[] getKG() {
-        return KG;
-    }
-
-    public int[] getKB() {
-        return KB;
-    }
-
-    public int getPixel() {
-        return pixel;
     }
 
     void setPixel(int pixel) {

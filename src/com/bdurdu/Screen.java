@@ -14,10 +14,13 @@ public class Screen extends JFrame implements ActionListener {
     private JMenuItem mainImageMenuItem;
     private JMenuItem hiddenImageMenuItem;
     private JMenuItem encryptMenuItem;
+    private JMenuItem decryptMenuItem;
+
 
     private JLabel mainImageBox, hiddenImageBox, cryptedImageBox;
     private BufferedImage mainImage, hiddenImage, cryptedImage;
     private Encryption encryption;
+    private Decryption decryption;
 
     public Screen() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -52,6 +55,9 @@ public class Screen extends JFrame implements ActionListener {
         encryptMenuItem = new JMenuItem("Encrypt");
         encryptMenuItem.addActionListener(this);
 
+        decryptMenuItem = new JMenuItem("Decrypt");
+        decryptMenuItem.addActionListener(this);
+
         menuBar.add(open);
         menuBar.add(crypt);
 
@@ -59,6 +65,7 @@ public class Screen extends JFrame implements ActionListener {
         open.add(hiddenImageMenuItem);
 
         crypt.add(encryptMenuItem);
+        crypt.add(decryptMenuItem);
 
         return menuBar;
     }
@@ -97,6 +104,9 @@ public class Screen extends JFrame implements ActionListener {
                 cryptedImageBox.setIcon(new ImageIcon(cryptedImage));
             else
                 JOptionPane.showMessageDialog(null, "Olusturulamiyor...");
+        } else if(e.getSource().equals(decryptMenuItem)) {
+            decryption = new Decryption(cryptedImage);
+            new ShowImage(decryption.getDecImageMod5(), this);
         }
     }
 }
