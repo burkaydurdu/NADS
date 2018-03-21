@@ -25,7 +25,7 @@ public class ImageControl {
 
     private int getGrayValue(int pixel) {
         color.setPixel(pixel);
-        int avg = ( (color.getAlpha() + color.getGreen() + color.getBlue()) / 3);
+        int avg = ( (color.getRed() + color.getGreen() + color.getBlue()) / 3);
         color.setRed(avg);
         color.setGreen(avg);
         color.setBlue(avg);

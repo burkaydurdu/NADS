@@ -15,18 +15,19 @@ public class Encryption extends Security {
     public Encryption(BufferedImage mainImage, BufferedImage hiddenImage) {
         super(mainImage, hiddenImage);
 
-        this.mainImage = mainImage;
+        color = new MyColor();
+
+        this.mainImage = mainImageControl(mainImage);
         this.hiddenImage = hiddenImage;
 
-
-        mod5 = new Mod5(mainImage);
-        color = new MyColor();
+        mod5 = new Mod5(this.mainImage);
     }
 
-    public void mainImageControl() {
-        for(int y = 0; y < mainImage.getHeight(); y++)
-            for(int x = 0; x < mainImage.getWidth(); x++) {
-                color.setPixel(mainImage.getRGB(x, y));
+    private BufferedImage mainImageControl(BufferedImage oldImage) {
+        BufferedImage image = new BufferedImage(oldImage.getWidth(), oldImage.getHeight(), BufferedImage.TYPE_INT_RGB);
+        for(int y = 0; y < oldImage.getHeight(); y++)
+            for(int x = 0; x < oldImage.getWidth(); x++) {
+                color.setPixel(oldImage.getRGB(x, y));
                 if(color.getRed() == 0) {
                     color.setRed(1);
                 } else if(color.getRed() == 255) {
@@ -44,16 +45,21 @@ public class Encryption extends Security {
                 } else if(color.getBlue() == 255) {
                     color.setBlue(254);
                 }
-                mainImage.setRGB(x, y, color.intPixel());
+                image.setRGB(x, y, color.intPixel());
             }
-    }
 
+            return image;
+    }
+    public String mod5SizeControl() {
+        if(!controlImageMaxLen()) return String.format("Belirtilen boyutlandirmanin sinir degerinden fazla\n" +
+                "Max = { %d x %d }", maxWidth, maxHeight);
+        else if(!isMod5Compression()) return String.format("Resim Boyutu { %d x %d}\n" +
+                "Sifrelenicek Resim boyutu { %d x %d}", mainImage.getWidth(), mainImage.getHeight(), hiddenImage.getWidth(), hiddenImage.getHeight());
+        return "TRUE";
+    }
     public BufferedImage getEncImageMod5() {
 
-        if(controlImageMaxLen() && isMod5Compression()) {
-
             mod5LenControl();
-
             mod5.setLength(getWidthPixel(), getHeightPixel(), mod5LenWid(), mod5LenHei());
 
             for (int y = 0; y < hiddenImage.getHeight(); y++)
@@ -61,9 +67,6 @@ public class Encryption extends Security {
                     mod5.setPixel(hiddenImage.getRGB(x, y));
                     mod5.setEncryption();
                 }
-
             return mod5.getEncryptionImage();
-        }
-        return null;
     }
 }

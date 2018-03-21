@@ -98,15 +98,20 @@ public class Screen extends JFrame implements ActionListener {
         }
         else if(e.getSource().equals(encryptMenuItem)) {
             encryption = new Encryption(mainImage, hiddenImage);
-            encryption.mainImageControl();
-            cryptedImage = encryption.getEncImageMod5();
-            if (cryptedImage != null)
+            String message = encryption.mod5SizeControl();
+            if(message.equals("TRUE")) {
+                cryptedImage = encryption.getEncImageMod5();
                 cryptedImageBox.setIcon(new ImageIcon(cryptedImage));
+            }
             else
-                JOptionPane.showMessageDialog(null, "Olusturulamiyor...");
+                JOptionPane.showMessageDialog(null, message);
         } else if(e.getSource().equals(decryptMenuItem)) {
-            decryption = new Decryption(cryptedImage);
-            new ShowImage(decryption.getDecImageMod5(), this);
+            if(cryptedImage != null) {
+                decryption = new Decryption(cryptedImage);
+                new ShowImage(decryption.getDecImageMod5(), this);
+            } else {
+                JOptionPane.showMessageDialog(null, "Sifreli resim yok!");
+            }
         }
     }
 }

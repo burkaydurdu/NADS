@@ -1,6 +1,7 @@
 package com.bdurdu;
 
 import java.awt.image.BufferedImage;
+import java.util.Arrays;
 
 public class Mod5 {
 
@@ -9,8 +10,6 @@ public class Mod5 {
     private int KR[];
     private int KG[];
     private int KB[];
-
-    private int pixel;
 
     private int mainArray[];
     private int hiddenArray[];
@@ -63,9 +62,9 @@ public class Mod5 {
         for(int i = 0; i < widthPixCou; i++) {
             colorR1.setPixel(mainArray[currentCount]);
             colorR2.setPixel(mainArray[currentCount + 1]);
-            newValue = setImage(colorR1.getRed(), colorR2.getRed() , widKey[i]);
-            colorR1.setRed(newValue[0]);
-            colorR2.setRed(newValue[1]);
+            newValue = setImage(colorR1.getGreen(), colorR2.getGreen() , widKey[i]);
+            colorR1.setGreen(newValue[0]);
+            colorR2.setGreen(newValue[1]);
             mainArray[currentCount] = colorR1.intPixel();
             mainArray[currentCount + 1] = colorR2.intPixel();
             currentCount += 2;
@@ -74,9 +73,9 @@ public class Mod5 {
         for(int j = 0; j < heightPixCou; j++) {
             colorR1.setPixel(mainArray[currentCount]);
             colorR2.setPixel(mainArray[currentCount + 1]);
-            newValue = setImage(colorR1.getRed(), colorR2.getRed() , heiKey[j]);
-            colorR1.setRed(newValue[0]);
-            colorR2.setRed(newValue[1]);
+            newValue = setImage(colorR1.getGreen(), colorR2.getGreen() , heiKey[j]);
+            colorR1.setGreen(newValue[0]);
+            colorR2.setGreen(newValue[1]);
             mainArray[currentCount] = colorR1.intPixel();
             mainArray[currentCount + 1] = colorR2.intPixel();
             currentCount += 2;
@@ -87,7 +86,7 @@ public class Mod5 {
         for(int i = 0; i < widthPixCou; i++) {
             colorR1.setPixel(mainArray[currentCount]);
             colorR2.setPixel(mainArray[currentCount + 1]);
-            hiddenImageWidth +=  ((colorR1.getRed() + colorR2.getRed() * 2 )
+            hiddenImageWidth +=  ((colorR1.getGreen() + colorR2.getGreen() * 2 )
                     % 5 )
                     * (int) Math.pow(5, i) ;
             currentCount += 2;
@@ -96,7 +95,7 @@ public class Mod5 {
         for(int i = 0; i < heightPixCou; i++) {
             colorR1.setPixel(mainArray[currentCount]);
             colorR2.setPixel(mainArray[currentCount + 1]);
-            hiddenImageHeight +=  ((colorR1.getRed() + colorR2.getRed() * 2 )
+            hiddenImageHeight +=  ((colorR1.getGreen() + colorR2.getGreen() * 2 )
                     % 5 )
                     * (int) Math.pow(5, i) ;
             currentCount += 2;
@@ -107,7 +106,9 @@ public class Mod5 {
 
     private void setKey() {
         int j = 0;
-        color.setPixel(pixel);
+        Arrays.fill(KR, 0);
+        Arrays.fill(KG, 0);
+        Arrays.fill(KB, 0);
         int red = color.getRed();
         while(  red > 0 ) {
             KR[j] = red % 5;
@@ -188,14 +189,15 @@ public class Mod5 {
     }
     BufferedImage getEncryptionImage() {
         int count = 0;
+        BufferedImage image = new BufferedImage(mainImage.getWidth(), mainImage.getHeight(), BufferedImage.TYPE_INT_RGB);
         for(int y = 0; y < mainImage.getHeight(); y++)
             for(int x = 0; x < mainImage.getWidth(); x++) {
-                mainImage.setRGB(x,y, mainArray[count++]);
+                image.setRGB(x,y, mainArray[count++]);
             }
-        return mainImage;
+        return image;
     }
 
-    BufferedImage setDecryptionImage() {
+    BufferedImage getDecryptionImage() {
         int count = 0;
         BufferedImage hiddenImage = new BufferedImage(hiddenImageWidth, hiddenImageHeight, BufferedImage.TYPE_INT_RGB);
         for(int y = 0; y < hiddenImageHeight; y++)
@@ -213,9 +215,9 @@ public class Mod5 {
                 result[0] = i1 + 1;
             } else if((i1 - 1 + 2 * i2) % 5 == i3) {
                 result[0] = i1 - 1;
-            } else if( (i1 + 2 * (i2 + 1)) % 5 == i3) {
+            } else if((i1 + 2 * (i2 + 1)) % 5 == i3) {
                 result[1] = i2 + 1;
-            } else if((i1 + 2 *  (i2 - 1)) % 5 == i3) {
+            } else if((i1 + 2 * (i2 - 1)) % 5 == i3) {
                 result[1] = i2 - 1;
             }
         }
@@ -223,7 +225,7 @@ public class Mod5 {
     }
 
     void setPixel(int pixel) {
-        this.pixel = pixel;
+        color.setPixel(pixel);
         setKey();
     }
 

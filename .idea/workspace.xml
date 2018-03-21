@@ -2,12 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="45f89031-9de3-4014-b57c-a3a1baef1971" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/NADS/com/bdurdu/Decryption.class" afterPath="$PROJECT_DIR$/out/production/NADS/com/bdurdu/Decryption.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/NADS/com/bdurdu/Encryption.class" afterPath="$PROJECT_DIR$/out/production/NADS/com/bdurdu/Encryption.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/NADS/com/bdurdu/ImageControl.class" afterPath="$PROJECT_DIR$/out/production/NADS/com/bdurdu/ImageControl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/NADS/com/bdurdu/Mod5.class" afterPath="$PROJECT_DIR$/out/production/NADS/com/bdurdu/Mod5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/NADS/com/bdurdu/MyColor.class" afterPath="$PROJECT_DIR$/out/production/NADS/com/bdurdu/MyColor.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/NADS/com/bdurdu/Screen.class" afterPath="$PROJECT_DIR$/out/production/NADS/com/bdurdu/Screen.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bdurdu/Decryption.java" afterPath="$PROJECT_DIR$/src/com/bdurdu/Decryption.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bdurdu/Encryption.java" afterPath="$PROJECT_DIR$/src/com/bdurdu/Encryption.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bdurdu/ImageControl.java" afterPath="$PROJECT_DIR$/src/com/bdurdu/ImageControl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bdurdu/Mod5.java" afterPath="$PROJECT_DIR$/src/com/bdurdu/Mod5.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bdurdu/MyColor.java" afterPath="$PROJECT_DIR$/src/com/bdurdu/MyColor.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bdurdu/Screen.java" afterPath="$PROJECT_DIR$/src/com/bdurdu/Screen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bdurdu/Security.java" afterPath="$PROJECT_DIR$/src/com/bdurdu/Security.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,41 +26,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/bdurdu/Main.java">
+      <file leaf-file-name="Security.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/bdurdu/Security.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-              <folding />
+            <state relative-caret-position="218">
+              <caret line="81" column="31" lean-forward="true" selection-start-line="81" selection-start-column="31" selection-end-line="81" selection-end-column="31" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Encryption.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Encryption.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/bdurdu/Encryption.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="61" column="30" lean-forward="false" selection-start-line="61" selection-start-column="30" selection-end-line="61" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Decryption.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/bdurdu/Decryption.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="18" column="19" lean-forward="true" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Mod5.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/bdurdu/Mod5.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="159" column="22" lean-forward="false" selection-start-line="159" selection-start-column="22" selection-end-line="159" selection-end-column="22" />
+            <state relative-caret-position="220">
+              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -63,35 +52,13 @@
         <entry file="file://$PROJECT_DIR$/src/com/bdurdu/MyColor.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="150">
-              <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding>
-                <element signature="e#488#489#0" expanded="true" />
-                <element signature="e#554#555#0" expanded="true" />
-                <element signature="e#833#834#0" expanded="true" />
-                <element signature="e#868#869#0" expanded="true" />
-                <element signature="e#898#899#0" expanded="true" />
-                <element signature="e#927#928#0" expanded="true" />
-                <element signature="e#955#956#0" expanded="true" />
-                <element signature="e#994#995#0" expanded="true" />
-                <element signature="e#1028#1029#0" expanded="true" />
-                <element signature="e#1056#1057#0" expanded="true" />
-                <element signature="e#1083#1084#0" expanded="true" />
-                <element signature="e#1120#1121#0" expanded="true" />
-                <element signature="e#1152#1153#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Security.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/bdurdu/Security.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1188">
-              <caret line="66" column="18" lean-forward="true" selection-start-line="66" selection-start-column="18" selection-end-line="66" selection-end-column="18" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2480#2481#0" expanded="true" />
-                <element signature="e#2513#2514#0" expanded="true" />
+                <element signature="e#357#358#0" expanded="true" />
+                <element signature="e#600#601#0" expanded="true" />
+                <element signature="e#628#629#0" expanded="true" />
+                <element signature="e#667#668#0" expanded="true" />
+                <element signature="e#701#702#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -100,8 +67,30 @@
       <file leaf-file-name="Rules.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/bdurdu/Rules.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="8" column="18" lean-forward="false" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+            <state relative-caret-position="180">
+              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Mod5.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/bdurdu/Mod5.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1224">
+              <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Decryption.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/bdurdu/Decryption.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="21" column="1" lean-forward="false" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -110,20 +99,8 @@
       <file leaf-file-name="Screen.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/bdurdu/Screen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="107" column="34" lean-forward="false" selection-start-line="107" selection-start-column="34" selection-end-line="107" selection-end-column="34" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ShowImage.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/bdurdu/ShowImage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="20" column="24" lean-forward="true" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
+            <state relative-caret-position="379">
+              <caret line="105" column="16" lean-forward="true" selection-start-line="105" selection-start-column="16" selection-end-line="106" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -159,15 +136,15 @@
       <list>
         <option value="$PROJECT_DIR$/src/com/bdurdu/README.md" />
         <option value="$PROJECT_DIR$/src/com/bdurdu/Main.java" />
-        <option value="$PROJECT_DIR$/src/com/bdurdu/ImageControl.java" />
         <option value="$PROJECT_DIR$/src/com/bdurdu/Rules.java" />
-        <option value="$PROJECT_DIR$/src/com/bdurdu/Encryption.java" />
         <option value="$PROJECT_DIR$/src/com/bdurdu/ShowImage.java" />
-        <option value="$PROJECT_DIR$/src/com/bdurdu/Screen.java" />
+        <option value="$PROJECT_DIR$/src/com/bdurdu/ImageControl.java" />
         <option value="$PROJECT_DIR$/src/com/bdurdu/Decryption.java" />
         <option value="$PROJECT_DIR$/src/com/bdurdu/Security.java" />
         <option value="$PROJECT_DIR$/src/com/bdurdu/MyColor.java" />
         <option value="$PROJECT_DIR$/src/com/bdurdu/Mod5.java" />
+        <option value="$PROJECT_DIR$/src/com/bdurdu/Screen.java" />
+        <option value="$PROJECT_DIR$/src/com/bdurdu/Encryption.java" />
       </list>
     </option>
   </component>
@@ -177,8 +154,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
-    <option name="x" value="1440" />
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="1440" />
     <option name="height" value="900" />
   </component>
@@ -199,8 +175,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -223,7 +197,9 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -303,15 +279,19 @@
       <workItem from="1520947543783" duration="3929000" />
       <workItem from="1521066956019" duration="2795000" />
       <workItem from="1521235424212" duration="7312000" />
-      <workItem from="1521325782232" duration="5745000" />
+      <workItem from="1521325782232" duration="5953000" />
+      <workItem from="1521380173674" duration="5316000" />
+      <workItem from="1521496357938" duration="3237000" />
+      <workItem from="1521633901775" duration="1092000" />
+      <workItem from="1521637542213" duration="3326000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36882000" />
+    <option name="totallyTimeSpent" value="50061000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1440" y="0" width="1440" height="900" extended-state="6" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -322,12 +302,12 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32799014" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32799014" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292232" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14449213" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14878398" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -351,11 +331,47 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/com/bdurdu/Mod5.java</url>
+          <line>134</line>
+          <properties class="com.bdurdu.Mod5" method="setEncryption">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/com/bdurdu/Mod5.java</url>
+          <line>189</line>
+          <properties class="com.bdurdu.Mod5" method="getEncryptionImage">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/com/bdurdu/Mod5.java</url>
+          <line>209</line>
+          <properties class="com.bdurdu.Mod5" method="setImage">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="6" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/com/bdurdu/Mod5.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2862">
+          <caret line="159" column="22" lean-forward="false" selection-start-line="159" selection-start-column="22" selection-end-line="159" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/bdurdu/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
@@ -384,7 +400,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3582">
           <caret line="199" column="27" lean-forward="false" selection-start-line="199" selection-start-column="27" selection-end-line="199" selection-end-column="27" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -394,8 +412,6 @@
           <caret line="19" column="4" lean-forward="false" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2480#2481#0" expanded="true" />
-            <element signature="e#2513#2514#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -446,7 +462,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="608">
           <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -456,8 +474,6 @@
           <caret line="85" column="0" lean-forward="true" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2480#2481#0" expanded="true" />
-            <element signature="e#2513#2514#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -508,7 +524,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2970">
           <caret line="137" column="23" lean-forward="false" selection-start-line="137" selection-start-column="23" selection-end-line="137" selection-end-column="23" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -550,7 +568,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2816">
           <caret line="130" column="13" lean-forward="false" selection-start-line="130" selection-start-column="13" selection-end-line="130" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -592,7 +612,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="21" column="10" lean-forward="false" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -620,7 +642,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="30" lean-forward="true" selection-start-line="12" selection-start-column="36" selection-end-line="13" selection-end-column="30" />
-          <folding />
+          <folding>
+            <element signature="e#357#358#0" expanded="true" />
+            <element signature="e#600#601#0" expanded="true" />
+            <element signature="e#628#629#0" expanded="true" />
+            <element signature="e#667#668#0" expanded="true" />
+            <element signature="e#701#702#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -662,7 +690,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="e#357#358#0" expanded="true" />
+            <element signature="e#600#601#0" expanded="true" />
+            <element signature="e#628#629#0" expanded="true" />
+            <element signature="e#667#668#0" expanded="true" />
+            <element signature="e#701#702#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -686,34 +720,80 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/bdurdu/ImageControl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="770">
-          <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/bdurdu/Rules.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="18" lean-forward="false" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/bdurdu/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
+        <state relative-caret-position="0">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/bdurdu/Screen.java">
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/Math.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="107" column="34" lean-forward="false" selection-start-line="107" selection-start-column="34" selection-end-line="107" selection-end-column="34" />
+        <state relative-caret-position="196">
+          <caret line="665" column="25" lean-forward="false" selection-start-line="665" selection-start-column="25" selection-end-line="665" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bdurdu/ShowImage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="20" column="24" lean-forward="false" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bdurdu/ImageControl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="31" column="32" lean-forward="true" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home/lib/src.zip!/java.desktop/javax/swing/JOptionPane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3199">
+          <caret line="616" column="23" lean-forward="false" selection-start-line="616" selection-start-column="23" selection-end-line="616" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bdurdu/Rules.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bdurdu/Decryption.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="21" column="1" lean-forward="false" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bdurdu/MyColor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding>
+            <element signature="e#357#358#0" expanded="true" />
+            <element signature="e#600#601#0" expanded="true" />
+            <element signature="e#628#629#0" expanded="true" />
+            <element signature="e#667#668#0" expanded="true" />
+            <element signature="e#701#702#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bdurdu/Mod5.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1224">
+          <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -722,76 +802,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/bdurdu/Security.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1188">
-          <caret line="66" column="18" lean-forward="true" selection-start-line="66" selection-start-column="18" selection-end-line="66" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2480#2481#0" expanded="true" />
-            <element signature="e#2513#2514#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/bdurdu/ShowImage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="20" column="24" lean-forward="true" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
+        <state relative-caret-position="218">
+          <caret line="81" column="31" lean-forward="true" selection-start-line="81" selection-start-column="31" selection-end-line="81" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/Math.java">
+    <entry file="file://$PROJECT_DIR$/src/com/bdurdu/Screen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="665" column="25" lean-forward="false" selection-start-line="665" selection-start-column="25" selection-end-line="665" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/bdurdu/Decryption.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="18" column="19" lean-forward="true" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/bdurdu/MyColor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+        <state relative-caret-position="379">
+          <caret line="105" column="16" lean-forward="true" selection-start-line="105" selection-start-column="16" selection-end-line="106" selection-end-column="46" />
           <folding>
-            <element signature="e#488#489#0" expanded="true" />
-            <element signature="e#554#555#0" expanded="true" />
-            <element signature="e#833#834#0" expanded="true" />
-            <element signature="e#868#869#0" expanded="true" />
-            <element signature="e#898#899#0" expanded="true" />
-            <element signature="e#927#928#0" expanded="true" />
-            <element signature="e#955#956#0" expanded="true" />
-            <element signature="e#994#995#0" expanded="true" />
-            <element signature="e#1028#1029#0" expanded="true" />
-            <element signature="e#1056#1057#0" expanded="true" />
-            <element signature="e#1083#1084#0" expanded="true" />
-            <element signature="e#1120#1121#0" expanded="true" />
-            <element signature="e#1152#1153#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/bdurdu/Encryption.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="61" column="30" lean-forward="false" selection-start-line="61" selection-start-column="30" selection-end-line="61" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/bdurdu/Mod5.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="159" column="22" lean-forward="false" selection-start-line="159" selection-start-column="22" selection-end-line="159" selection-end-column="22" />
+        <state relative-caret-position="220">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
         </state>
       </provider>

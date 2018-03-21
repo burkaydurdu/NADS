@@ -17,6 +17,6 @@ public class Decryption extends Security{
 
     public BufferedImage getDecImageMod5() {
         mod5.setDecryption();
-        return mod5.setDecryptionImage();
+        return mod5.getDecryptionImage();
     }
 }
