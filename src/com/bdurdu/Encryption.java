@@ -2,17 +2,18 @@ package com.bdurdu;
 
 import java.awt.image.BufferedImage;
 
-public class Encryption extends Security {
+class Encryption extends Security {
 
     private BufferedImage mainImage;
     private BufferedImage hiddenImage;
 
     private Mod5 mod5;
+    private Mod7 mod7;
 
     private MyColor color;
 
 
-    public Encryption(BufferedImage mainImage, BufferedImage hiddenImage) {
+    Encryption(BufferedImage mainImage, BufferedImage hiddenImage) {
         super(mainImage, hiddenImage);
 
         color = new MyColor();
@@ -21,6 +22,7 @@ public class Encryption extends Security {
         this.hiddenImage = hiddenImage;
 
         mod5 = new Mod5(this.mainImage);
+        mod7 = new Mod7(this.mainImage);
     }
 
     private BufferedImage mainImageControl(BufferedImage oldImage) {
@@ -50,14 +52,24 @@ public class Encryption extends Security {
 
             return image;
     }
-    public String mod5SizeControl() {
+
+    String mod5SizeControl() {
         if(!controlImageMaxLen()) return String.format("Belirtilen boyutlandirmanin sinir degerinden fazla\n" +
                 "Max = { %d x %d }", maxWidth, maxHeight);
         else if(!isMod5Compression()) return String.format("Resim Boyutu { %d x %d}\n" +
                 "Sifrelenicek Resim boyutu { %d x %d}", mainImage.getWidth(), mainImage.getHeight(), hiddenImage.getWidth(), hiddenImage.getHeight());
         return "TRUE";
     }
-    public BufferedImage getEncImageMod5() {
+
+    String mod7SizeControl() {
+        if(!controlImageMaxLen()) return String.format("Belirtilen boyutlandirmanin sinir degerinden fazla\n" +
+                "Max = { %d x %d }", maxWidth, maxHeight);
+        else if(!isMod7Compression()) return String.format("Resim Boyutu { %d x %d}\n" +
+                "Sifrelenicek Resim boyutu { %d x %d}", mainImage.getWidth(), mainImage.getHeight(), hiddenImage.getWidth(), hiddenImage.getHeight());
+        return "TRUE";
+    }
+
+    BufferedImage getEncImageMod5() {
 
             mod5LenControl();
             mod5.setLength(getWidthPixel(), getHeightPixel(), mod5LenWid(), mod5LenHei());
@@ -68,5 +80,18 @@ public class Encryption extends Security {
                     mod5.setEncryption();
                 }
             return mod5.getEncryptionImage();
+    }
+
+    BufferedImage getEncImageMod7() {
+
+        mod7LenControl();
+        mod7.setLength(getWidthPixel(), getHeightPixel(), mod7LenWid(), mod7LenHei());
+
+        for(int y = 0; y < hiddenImage.getHeight(); y++)
+            for(int x = 0; x < hiddenImage.getWidth(); x++) {
+                mod7.setPixel(hiddenImage.getRGB(x, y));
+                mod7.setEncryption();
+            }
+        return mod7.getEncryptionImage();
     }
 }

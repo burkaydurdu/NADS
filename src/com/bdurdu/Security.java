@@ -86,6 +86,32 @@ public class Security  implements Rules{
         return array;
     }
 
+    public int[] mod7LenWid() {
+        int [] array = new int[getWidthPixel()];
+        Arrays.fill(array, 0);
+        int wid = hiddenImage.getWidth();
+        int j = 0;
+        while(wid > 0) {
+            array[j] = wid % 7;
+            wid /= 7;
+            j++;
+        }
+        return array;
+    }
+
+    public int[] mod7LenHei() {
+        int [] array = new int[getHeightPixel()];
+        Arrays.fill(array, 0);
+        int hei = hiddenImage.getHeight();
+        int j = 0;
+        while(hei > 0) {
+            array[j] = hei % 7;
+            hei /= 7;
+            j++;
+        }
+        return array;
+    }
+
 
     @Override
     public boolean isMod5Compression() {
