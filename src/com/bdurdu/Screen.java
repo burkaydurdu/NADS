@@ -2,7 +2,6 @@ package com.bdurdu;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,6 +15,7 @@ public class Screen extends JFrame implements ActionListener {
     private JMenuItem hiddenImageMenuItem;
     private JMenuItem encryptMenuItem;
     private JMenuItem decryptMenuItem;
+    private JMenuItem psnrMenuItem;
 
     private JRadioButtonMenuItem radioButtonMode5Item;
     private JRadioButtonMenuItem radioButtonMode7Item;
@@ -60,49 +60,54 @@ public class Screen extends JFrame implements ActionListener {
         JMenu mod = new JMenu("Mod");
         JMenu crypt = new JMenu("Crypt");
         JMenu send = new JMenu("Send");
+        JMenu info = new JMenu("Info");
 
+        open.setIcon(new ImageIcon("icon/openi.png"));
 
         ButtonGroup groupMod = new ButtonGroup();
         ButtonGroup groupSend = new ButtonGroup();
 
 
-        mainImageMenuItem = new JMenuItem("Main Image");
+        mainImageMenuItem = new JMenuItem("Main Image", new ImageIcon("icon/addi.png"));
         mainImageMenuItem.addActionListener(this);
 
-        hiddenImageMenuItem = new JMenuItem("Hidden Image");
+        hiddenImageMenuItem = new JMenuItem("Hidden Image", new ImageIcon("icon/addi.png"));
         hiddenImageMenuItem.addActionListener(this);
 
-        encryptMenuItem = new JMenuItem("Encrypt");
+        encryptMenuItem = new JMenuItem("Encrypt", new ImageIcon("icon/encrypti.png"));
         encryptMenuItem.addActionListener(this);
 
-        decryptMenuItem = new JMenuItem("Decrypt");
+        decryptMenuItem = new JMenuItem("Decrypt", new ImageIcon("icon/decrypti.png"));
         decryptMenuItem.addActionListener(this);
 
+        psnrMenuItem = new JMenuItem("PSNR");
+        psnrMenuItem.addActionListener(this);
 
-        radioButtonMode5Item = new JRadioButtonMenuItem("Mod5");
+        radioButtonMode5Item = new JRadioButtonMenuItem("Mod5", new ImageIcon("icon/mod5i.png"));
         radioButtonMode5Item.addActionListener(this);
 
-        radioButtonMode7Item = new JRadioButtonMenuItem("Mod7");
+        radioButtonMode7Item = new JRadioButtonMenuItem("Mod7", new ImageIcon("icon/mod7i.png"));
         radioButtonMode7Item.addActionListener(this);
 
-        radioButtonAutoItem = new JRadioButtonMenuItem("Automatic");
+        radioButtonAutoItem = new JRadioButtonMenuItem("Automatic", new ImageIcon("icon/autoi.png"));
         radioButtonAutoItem.addActionListener(this);
 
-        radioButtonServerItem = new JRadioButtonMenuItem("Server");
+        radioButtonServerItem = new JRadioButtonMenuItem("Server", new ImageIcon("icon/sendi.png"));
         radioButtonServerItem.addActionListener(this);
 
-        radioButtonClientItem = new JRadioButtonMenuItem("Client");
+        radioButtonClientItem = new JRadioButtonMenuItem("Client", new ImageIcon("icon/receivei.png"));
         radioButtonClientItem.addActionListener(this);
 
         inputPortText = new JTextField("Input Port");
         inputPortText.setPreferredSize(new Dimension(200, 24));
 
-        connection = new JButton("Connection");
+        connection = new JButton("Connection", new ImageIcon("icon/connecti.png"));
 
         menuBar.add(open);
         menuBar.add(mod);
         menuBar.add(crypt);
         menuBar.add(send);
+        menuBar.add(info);
 
         open.add(mainImageMenuItem);
         open.add(hiddenImageMenuItem);
@@ -125,6 +130,8 @@ public class Screen extends JFrame implements ActionListener {
         send.add(radioButtonServerItem);
         send.add(radioButtonClientItem);
         send.add(connection);
+
+        info.add(psnrMenuItem);
 
         return menuBar;
     }
@@ -155,7 +162,7 @@ public class Screen extends JFrame implements ActionListener {
         } else if (e.getSource().equals(hiddenImageMenuItem)) {
             openFile(1);
         } else if(e.getSource().equals(encryptMenuItem)) {
-            if(encryptedImage != null) {
+            if(hiddenImage != null) {
                 Encryption encryption = new Encryption(mainImage, hiddenImage);
                 if (currentMod == Mod.MOD5) {
                     String message = encryption.mod5SizeControl();
@@ -169,8 +176,6 @@ public class Screen extends JFrame implements ActionListener {
                         encryptedImage = encryption.getEncImageMod7();
                         encryptedImageBox.setIcon(new ImageIcon(encryptedImage));
                     } else JOptionPane.showMessageDialog(null, message);
-                } else if (currentMod == Mod.AUTO) {
-
                 }
             } else JOptionPane.showMessageDialog(null, "Resim yok!");
         } else if(e.getSource().equals(decryptMenuItem)) {
@@ -187,5 +192,12 @@ public class Screen extends JFrame implements ActionListener {
         else if(e.getSource().equals(radioButtonMode5Item)) currentMod = Mod.MOD5;
         else if(e.getSource().equals(radioButtonMode7Item)) currentMod = Mod.MOD7;
         else if(e.getSource().equals(radioButtonAutoItem)) currentMod = Mod.AUTO;
+        else if(e.getSource().equals(psnrMenuItem)) {
+            double [] array = Info.getPSNRValue(mainImage, encryptedImage);
+            JOptionPane.showMessageDialog(null,
+                    "RED PSNR : " + String.valueOf(array[0]) +
+                            "GREEN PSNR : " + String.valueOf(array[1]) +
+                            "BLUE PSNR : " + String.valueOf(array[2]));
+        }
     }
 }
