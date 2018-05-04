@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.text.DecimalFormat;
 
 public class Screen extends JFrame implements ActionListener {
 
@@ -63,10 +64,13 @@ public class Screen extends JFrame implements ActionListener {
         JMenu info = new JMenu("Info");
 
         open.setIcon(new ImageIcon("icon/openi.png"));
+        mod.setIcon(new ImageIcon("icon/modi.png"));
+        crypt.setIcon(new ImageIcon("icon/encrypy2i.png"));
+        send.setIcon(new ImageIcon("icon/send2i.png"));
+        info.setIcon(new ImageIcon("icon/infoi.png"));
 
         ButtonGroup groupMod = new ButtonGroup();
         ButtonGroup groupSend = new ButtonGroup();
-
 
         mainImageMenuItem = new JMenuItem("Main Image", new ImageIcon("icon/addi.png"));
         mainImageMenuItem.addActionListener(this);
@@ -80,7 +84,7 @@ public class Screen extends JFrame implements ActionListener {
         decryptMenuItem = new JMenuItem("Decrypt", new ImageIcon("icon/decrypti.png"));
         decryptMenuItem.addActionListener(this);
 
-        psnrMenuItem = new JMenuItem("PSNR");
+        psnrMenuItem = new JMenuItem("PSNR", new ImageIcon("icon/psnri.png"));
         psnrMenuItem.addActionListener(this);
 
         radioButtonMode5Item = new JRadioButtonMenuItem("Mod5", new ImageIcon("icon/mod5i.png"));
@@ -176,6 +180,23 @@ public class Screen extends JFrame implements ActionListener {
                         encryptedImage = encryption.getEncImageMod7();
                         encryptedImageBox.setIcon(new ImageIcon(encryptedImage));
                     } else JOptionPane.showMessageDialog(null, message);
+                } else if(currentMod == Mod.AUTO) {
+                    if(!encryption.mod7SizeControl().equals("TRUE")) {
+                        if(!encryption.mod5SizeControl().equals("TRUE")) {
+                            JOptionPane.showMessageDialog(null, "Gizli resim ana resime saklanamiyor!");
+                        } else {
+                            currentMod = Mod.MOD5;
+                            encryptedImage = encryption.getEncImageMod5();
+                            encryptedImageBox.setIcon(new ImageIcon(encryptedImage));
+                            JOptionPane.showMessageDialog(null, "Mod5 ile sifrenlendi!");
+                        }
+                    } else {
+                        currentMod = Mod.MOD7;
+                        encryptedImage = encryption.getEncImageMod7();
+                        encryptedImageBox.setIcon(new ImageIcon(encryptedImage));
+                        JOptionPane.showMessageDialog(null, "Mod7 ile sifrenlendi!");
+                    }
+
                 }
             } else JOptionPane.showMessageDialog(null, "Resim yok!");
         } else if(e.getSource().equals(decryptMenuItem)) {
@@ -193,11 +214,14 @@ public class Screen extends JFrame implements ActionListener {
         else if(e.getSource().equals(radioButtonMode7Item)) currentMod = Mod.MOD7;
         else if(e.getSource().equals(radioButtonAutoItem)) currentMod = Mod.AUTO;
         else if(e.getSource().equals(psnrMenuItem)) {
-            double [] array = Info.getPSNRValue(mainImage, encryptedImage);
-            JOptionPane.showMessageDialog(null,
-                    "RED PSNR : " + String.valueOf(array[0]) +
-                            "GREEN PSNR : " + String.valueOf(array[1]) +
-                            "BLUE PSNR : " + String.valueOf(array[2]));
+            if(encryptedImage != null) {
+                double[] array = Info.getPSNRValue(mainImage, encryptedImage);
+                DecimalFormat decimalFormat = new DecimalFormat(".0000");
+                JOptionPane.showMessageDialog(null,
+                        "RED PSNR : " + String.valueOf(decimalFormat.format(array[0])) + "\n" +
+                                "GREEN PSNR : " + String.valueOf(decimalFormat.format(array[1])) + "\n" +
+                                "BLUE PSNR : " + String.valueOf(decimalFormat.format(array[2])));
+            } else JOptionPane.showMessageDialog(null, "Oncelikle Sifrelemeyi Calistirin!");
         }
     }
 }
