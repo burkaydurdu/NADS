@@ -96,6 +96,7 @@ public class Mod7 {
     }
 
     void getLength(int widthPixCou, int heightPixCou) {
+        currentCount++;
         for (int i = 0; i < widthPixCou; i++) {
             colorR1.setPixel(mainArray[currentCount]);
             colorR2.setPixel(mainArray[currentCount + 1]);
@@ -119,6 +120,14 @@ public class Mod7 {
         }
 
         hiddenArray = new int[hiddenImageWidth * hiddenImageHeight];
+    }
+
+    void setModType() {
+        color.setPixel(mainArray[currentCount]);
+        int val = (color.getBlue() & 0xFE) | 0x01;  //11111110 AND OR 00000001
+        color.setBlue(val);
+        mainArray[currentCount] = color.intPixel();
+        currentCount++;
     }
 
     private void setKey() {

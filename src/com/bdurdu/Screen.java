@@ -202,11 +202,19 @@ public class Screen extends JFrame implements ActionListener {
         } else if(e.getSource().equals(decryptMenuItem)) {
             if(encryptedImage != null) {
                 Decryption decryption = new Decryption(encryptedImage);
-                if(currentMod == Mod.MOD5) {
+                if(decryption.getModType() == 0 ) {
                     new ShowImage(decryption.getDecImageMod5(), this);
-                } else if(currentMod == Mod.MOD7) {
-                    new ShowImage(decryption.getDecImageMod7(), this);
+                    JOptionPane.showMessageDialog(null, "Mod5 ile desifrelendi");
                 }
+                else if(decryption.getModType() == 1) {
+                    new ShowImage(decryption.getDecImageMod7(), this);
+                    JOptionPane.showMessageDialog(null, "Mod7 ile desifrelendi");
+                }
+//                if(currentMod == Mod.MOD5) {
+//                    new ShowImage(decryption.getDecImageMod5(), this);
+//                } else if(currentMod == Mod.MOD7) {
+//                    new ShowImage(decryption.getDecImageMod7(), this);
+//                }
             } else JOptionPane.showMessageDialog(null, "Sifreli resim yok!");
 
         }

@@ -112,15 +112,16 @@ public class Security  implements Rules{
         return array;
     }
 
+    // + 1 => ilk 1 pixeline mod bilgisini veriyoruz
 
     @Override
     public boolean isMod5Compression() {
-        return main_max > (hidden_max * 8) + widthPixel * 2 + heightPixel * 2;
+        return main_max > (hidden_max * 8) + widthPixel * 2 + heightPixel * 2 + 1;
     }
 
     @Override
     public boolean isMod7Compression() {
-        return main_max > (hidden_max * 12) + widthPixel * 3 + heightPixel * 3;
+        return main_max > (hidden_max * 12) + widthPixel * 3 + heightPixel * 3 + 1;
     }
 
     public int getWidthPixel() {

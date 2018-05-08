@@ -7,8 +7,13 @@ public class Decryption extends Security{
 
     private Mod5 mod5;
     private Mod7 mod7;
+    private MyColor color;
+    private BufferedImage mainImage;
 
     public Decryption(BufferedImage mainImage) {
+
+        this.mainImage = mainImage;
+        color = new MyColor();
 
         mod5LenControl();
         mod5 = new Mod5(mainImage);
@@ -17,6 +22,11 @@ public class Decryption extends Security{
         mod7LenControl();
         mod7 = new Mod7(mainImage);
         mod7.getLength(getWidthPixel(), getHeightPixel());
+    }
+
+    public int getModType() {
+        color.setPixel(mainImage.getRGB(0,0));
+        return color.getBlue() & 0x01;
     }
 
     public BufferedImage getDecImageMod5() {

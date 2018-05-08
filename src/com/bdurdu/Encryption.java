@@ -50,7 +50,7 @@ class Encryption extends Security {
                 image.setRGB(x, y, color.intPixel());
             }
 
-            return image;
+        return image;
     }
 
     String mod5SizeControl() {
@@ -70,21 +70,22 @@ class Encryption extends Security {
     }
 
     BufferedImage getEncImageMod5() {
+        mod5LenControl();
+        mod5.setModType();
+        mod5.setLength(getWidthPixel(), getHeightPixel(), mod5LenWid(), mod5LenHei());
 
-            mod5LenControl();
-            mod5.setLength(getWidthPixel(), getHeightPixel(), mod5LenWid(), mod5LenHei());
-
-            for (int y = 0; y < hiddenImage.getHeight(); y++)
-                for (int x = 0; x < hiddenImage.getWidth(); x++) {
-                    mod5.setPixel(hiddenImage.getRGB(x, y));
-                    mod5.setEncryption();
-                }
-            return mod5.getEncryptionImage();
+        for (int y = 0; y < hiddenImage.getHeight(); y++)
+            for (int x = 0; x < hiddenImage.getWidth(); x++) {
+                mod5.setPixel(hiddenImage.getRGB(x, y));
+                mod5.setEncryption();
+            }
+        return mod5.getEncryptionImage();
     }
 
     BufferedImage getEncImageMod7() {
 
         mod7LenControl();
+        mod7.setModType();
         mod7.setLength(getWidthPixel(), getHeightPixel(), mod7LenWid(), mod7LenHei());
 
         for(int y = 0; y < hiddenImage.getHeight(); y++)

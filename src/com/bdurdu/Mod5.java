@@ -52,7 +52,6 @@ public class Mod5 {
 
     /*
     *
-    *
     * @ param1 => max width size mod5 pixel count
     * @ param2 => max height size mod5 pixel count
     *
@@ -82,7 +81,9 @@ public class Mod5 {
         }
     }
 
+
     void getLength(int widthPixCou, int heightPixCou) {
+        currentCount++;
         for(int i = 0; i < widthPixCou; i++) {
             colorR1.setPixel(mainArray[currentCount]);
             colorR2.setPixel(mainArray[currentCount + 1]);
@@ -103,6 +104,15 @@ public class Mod5 {
 
         hiddenArray = new int[hiddenImageWidth * hiddenImageHeight];
     }
+
+    void setModType() {
+        color.setPixel(mainArray[currentCount]);
+        int val = color.getBlue() & 0xFE;  //11111110 AND
+        color.setBlue(val);
+        mainArray[currentCount] = color.intPixel();
+        currentCount++;
+    }
+
 
     private void setKey() {
         int j = 0;
