@@ -15,6 +15,7 @@ public class Security  implements Rules{
         this.mainImage = mainImage;
         this.hiddenImage = hiddenImage;
     }
+
     public Security() {}
 
     public boolean controlImageMaxLen() {

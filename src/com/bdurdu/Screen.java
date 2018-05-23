@@ -9,8 +9,6 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.text.DecimalFormat;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class Screen extends JFrame implements ActionListener {
 
@@ -28,19 +26,16 @@ public class Screen extends JFrame implements ActionListener {
     private JRadioButtonMenuItem radioButtonClientItem;
 
     private JTextField inputPortText;
+    private JTextField inputHostText;
 
     private JButton connection;
 
     private JLabel mainImageBox, hiddenImageBox, encryptedImageBox;
     private BufferedImage mainImage, hiddenImage, encryptedImage;
 
-    private enum Mod {
-        MOD5, MOD7, AUTO
-    }
+    private enum Mod { MOD5, MOD7, AUTO }
 
-    private enum Role {
-        CLIENT, SERVER
-    }
+    private enum Role { CLIENT, SERVER }
 
     private Mod currentMod;
     private Role currentRole;
@@ -60,6 +55,9 @@ public class Screen extends JFrame implements ActionListener {
         add(hiddenImageBox, BorderLayout.CENTER);
         add(encryptedImageBox, BorderLayout.EAST);
 
+        currentMod = Mod.AUTO;
+
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
         setVisible(true);
     }
 
@@ -116,6 +114,9 @@ public class Screen extends JFrame implements ActionListener {
         inputPortText = new JTextField("Input Port");
         inputPortText.setPreferredSize(new Dimension(200, 24));
 
+        inputHostText = new JTextField("Input Host");
+        inputHostText.setPreferredSize(new Dimension(200, 24));
+
         connection = new JButton("Connection", new ImageIcon("icon/connecti.png"));
         connection.addActionListener(this);
 
@@ -143,6 +144,7 @@ public class Screen extends JFrame implements ActionListener {
         crypt.add(encryptMenuItem);
         crypt.add(decryptMenuItem);
 
+        send.add(inputHostText);
         send.add(inputPortText);
         send.add(radioButtonServerItem);
         send.add(radioButtonClientItem);
@@ -160,19 +162,29 @@ public class Screen extends JFrame implements ActionListener {
             File file = fc.getSelectedFile();
             try {
                 if (control == 0) {
-                    mainImageBox.setIcon(new ImageIcon(ImageIO.read(file)));
+                    mainImageBox.setIcon(new ImageIcon(scaleImage(ImageIO.read(file))));
                     mainImage = ImageIO.read(file);
                 } else if(control == 1) {
                     hiddenImageBox.setIcon(new ImageIcon(ImageIO.read(file)));
                     hiddenImage = ImageIO.read(file);
                 } else if(control == 2) {
-                    mainImageBox.setIcon(new ImageIcon(ImageIO.read(file)));
+                    mainImageBox.setIcon(new ImageIcon(scaleImage(ImageIO.read(file))));
                     encryptedImage = ImageIO.read(file);
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
+    }
+
+    private Image scaleImage(Image image) {
+        int width = image.getWidth(this);
+        int height = image.getHeight(this);
+
+        width *= 0.7;
+        height *= 0.7;
+
+        return image.getScaledInstance(width, height, Image.SCALE_DEFAULT);
     }
 
     @Override
@@ -190,14 +202,15 @@ public class Screen extends JFrame implements ActionListener {
                     String message = encryption.mod5SizeControl();
                     if (message.equals("TRUE")) {
                         encryptedImage = encryption.getEncImageMod5();
-                        encryptedImageBox.setIcon(new ImageIcon(encryptedImage));
+                        encryptedImageBox.setIcon(new ImageIcon(scaleImage(encryptedImage)));
                     } else JOptionPane.showMessageDialog(null, message);
                 } else if (currentMod == Mod.MOD7) {
                     String message = encryption.mod7SizeControl();
                     if (message.equals("TRUE")) {
                         encryptedImage = encryption.getEncImageMod7();
-                        encryptedImageBox.setIcon(new ImageIcon(encryptedImage));
+                        encryptedImageBox.setIcon(new ImageIcon(scaleImage(encryptedImage)));
                     } else JOptionPane.showMessageDialog(null, message);
+
                 } else if(currentMod == Mod.AUTO) {
                     if(!encryption.mod7SizeControl().equals("TRUE")) {
                         if(!encryption.mod5SizeControl().equals("TRUE")) {
@@ -205,16 +218,15 @@ public class Screen extends JFrame implements ActionListener {
                         } else {
                             currentMod = Mod.MOD5;
                             encryptedImage = encryption.getEncImageMod5();
-                            encryptedImageBox.setIcon(new ImageIcon(encryptedImage));
+                            encryptedImageBox.setIcon(new ImageIcon(scaleImage(encryptedImage)));
                             JOptionPane.showMessageDialog(null, "Mod5 ile sifrenlendi!");
                         }
                     } else {
                         currentMod = Mod.MOD7;
                         encryptedImage = encryption.getEncImageMod7();
-                        encryptedImageBox.setIcon(new ImageIcon(encryptedImage));
+                        encryptedImageBox.setIcon(new ImageIcon(scaleImage(encryptedImage)));
                         JOptionPane.showMessageDialog(null, "Mod7 ile sifrenlendi!");
                     }
-
                 }
             } else JOptionPane.showMessageDialog(null, "Resim yok!");
         } else if(e.getSource().equals(decryptMenuItem)) {
@@ -228,11 +240,6 @@ public class Screen extends JFrame implements ActionListener {
                     new ShowImage(decryption.getDecImageMod7(), this);
                     JOptionPane.showMessageDialog(null, "Mod7 ile desifrelendi");
                 }
-//                if(currentMod == Mod.MOD5) {
-//                    new ShowImage(decryption.getDecImageMod5(), this);
-//                } else if(currentMod == Mod.MOD7) {
-//                    new ShowImage(decryption.getDecImageMod7(), this);
-//                }
             } else JOptionPane.showMessageDialog(null, "Sifreli resim yok!");
 
         }
@@ -243,41 +250,26 @@ public class Screen extends JFrame implements ActionListener {
             if(encryptedImage != null) {
                 double[] array = Info.getPSNRValue(mainImage, encryptedImage);
                 DecimalFormat decimalFormat = new DecimalFormat(".0000");
-                JOptionPane.showMessageDialog(null,
+                JOptionPane.showConfirmDialog(null,
                         "RED PSNR : " + String.valueOf(decimalFormat.format(array[0])) + "\n" +
                                 "GREEN PSNR : " + String.valueOf(decimalFormat.format(array[1])) + "\n" +
-                                "BLUE PSNR : " + String.valueOf(decimalFormat.format(array[2])));
-            } else JOptionPane.showMessageDialog(null, "Oncelikle Sifrelemeyi Calistirin!");
+                                "BLUE PSNR : " + String.valueOf(decimalFormat.format(array[2])), "PSNR", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+            } else JOptionPane.showConfirmDialog(null, "Oncelikle Sifrelemeyi Calistirin!", "PSNR", JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
         }
         else if(e.getSource().equals(radioButtonClientItem)) currentRole = Role.CLIENT;
         else if(e.getSource().equals(radioButtonServerItem)) currentRole = Role.SERVER;
         else if(e.getSource().equals(connection)) {
+            String host = inputHostText.getText();
             int port = Integer.parseInt(inputPortText.getText());
             if(currentRole == Role.CLIENT) {
-//                if (port != 0 && encryptedImage != null) {
-                    Client client = new Client(port);
+                    Client client = new Client(host, port);
                     client.onCreateConnection();
-//                }
             } else {
                 if (port != 0 && encryptedImage != null) {
                     Server server = new Server(port, encryptedImage);
                     server.start();
-                    //getImageClient(server);
                 }
             }
         }
-
-    }
-    private void getImageClient(Server server) {
-        Timer timer = new Timer();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                if(server.getImage() != null) {
-                    System.out.println("Girdi");
-                    mainImageBox.setIcon(new ImageIcon(server.getImage()));
-                }
-            }
-        },2 * 60 * 1000);
     }
 }

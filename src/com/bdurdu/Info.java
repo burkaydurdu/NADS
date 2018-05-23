@@ -11,8 +11,8 @@ public class Info {
         double countGreen = 0;
         double countBlue = 0;
 
-        for(int i = 0; i < mainImage.getWidth(); i++) {
-            for(int j = 0; j < mainImage.getHeight(); j++) {
+        for(int i = 0; i < mainImage.getHeight(); i++) {
+            for(int j = 0; j < mainImage.getWidth(); j++) {
                 color1.setPixel(mainImage.getRGB(j, i));
                 color2.setPixel(cryImage.getRGB(j, i));
                 countRed += Math.pow(color1.getRed() - color2.getRed(), 2);
