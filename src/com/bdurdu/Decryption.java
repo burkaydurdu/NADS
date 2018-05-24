@@ -2,7 +2,7 @@ package com.bdurdu;
 
 import java.awt.image.BufferedImage;
 
-public class Decryption extends Security{
+class Decryption extends Security{
 
 
     private Mod5 mod5;
@@ -10,7 +10,7 @@ public class Decryption extends Security{
     private MyColor color;
     private BufferedImage mainImage;
 
-    public Decryption(BufferedImage mainImage) {
+    Decryption(BufferedImage mainImage) {
 
         this.mainImage = mainImage;
         color = new MyColor();
@@ -24,17 +24,17 @@ public class Decryption extends Security{
         mod7.getLength(getWidthPixel(), getHeightPixel());
     }
 
-    public int getModType() {
+    int getModType() {
         color.setPixel(mainImage.getRGB(0,0));
         return color.getBlue() & 0x01;
     }
 
-    public BufferedImage getDecImageMod5() {
+    BufferedImage getDecImageMod5() {
         mod5.setDecryption();
         return mod5.getDecryptionImage();
     }
 
-    public BufferedImage getDecImageMod7() {
+    BufferedImage getDecImageMod7() {
         mod7.setDecryption();
         return mod7.getDecryptionImage();
     }

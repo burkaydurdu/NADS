@@ -3,7 +3,7 @@ package com.bdurdu;
 import java.awt.image.BufferedImage;
 import java.util.Arrays;
 
-public class Mod7 {
+class Mod7 {
 
 //  private int kR4; // en son en anlamli
 

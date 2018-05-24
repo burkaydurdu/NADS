@@ -18,7 +18,7 @@ public class Security  implements Rules{
 
     public Security() {}
 
-    public boolean controlImageMaxLen() {
+    boolean controlImageMaxLen() {
         int image_max = maxWidth * maxHeight;
         main_max = mainImage.getWidth() * mainImage.getHeight();
         hidden_max = hiddenImage.getWidth() * hiddenImage.getHeight();
@@ -61,7 +61,7 @@ public class Security  implements Rules{
         heightPixel = count;
     }
 
-    public int[] mod5LenWid() {
+    int[] mod5LenWid() {
         int [] array = new int[getWidthPixel()];
         Arrays.fill(array, 0);
         int wid = hiddenImage.getWidth();
@@ -74,7 +74,7 @@ public class Security  implements Rules{
         return array;
     }
 
-    public int[] mod5LenHei() {
+    int[] mod5LenHei() {
         int [] array = new int[getHeightPixel()];
         Arrays.fill(array, 0);
         int hei = hiddenImage.getHeight();
@@ -87,7 +87,7 @@ public class Security  implements Rules{
         return array;
     }
 
-    public int[] mod7LenWid() {
+    int[] mod7LenWid() {
         int [] array = new int[getWidthPixel()];
         Arrays.fill(array, 0);
         int wid = hiddenImage.getWidth();
@@ -100,7 +100,7 @@ public class Security  implements Rules{
         return array;
     }
 
-    public int[] mod7LenHei() {
+    int[] mod7LenHei() {
         int [] array = new int[getHeightPixel()];
         Arrays.fill(array, 0);
         int hei = hiddenImage.getHeight();
@@ -125,19 +125,19 @@ public class Security  implements Rules{
         return main_max > (hidden_max * 12) + widthPixel * 3 + heightPixel * 3 + 1;
     }
 
-    public int getWidthPixel() {
+    int getWidthPixel() {
         return widthPixel;
     }
 
-    public void setWidthPixel(int widthPixel) {
+    private void setWidthPixel(int widthPixel) {
         this.widthPixel = widthPixel;
     }
 
-    public int getHeightPixel() {
+    int getHeightPixel() {
         return heightPixel;
     }
 
-    public void setHeightPixel(int heightPixel) {
+    private void setHeightPixel(int heightPixel) {
         this.heightPixel = heightPixel;
     }
 }

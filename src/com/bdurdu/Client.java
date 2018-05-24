@@ -6,7 +6,7 @@ import java.awt.image.BufferedImage;
 import java.io.*;
 import java.net.Socket;
 
-public class Client {
+class Client {
 
     private Image image;
     private Byte[] bytes;
@@ -36,6 +36,7 @@ public class Client {
             BufferedImage bufferedImage = ImageIO.read(in);
             ImageIO.write(bufferedImage, "bmp", new File(
                     "gelen.bmp"));
+            client.close();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }

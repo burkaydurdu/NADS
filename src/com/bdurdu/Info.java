@@ -2,8 +2,8 @@ package com.bdurdu;
 
 import java.awt.image.BufferedImage;
 
-public class Info {
-    public static double [] getPSNRValue(BufferedImage mainImage, BufferedImage cryImage) {
+class Info {
+    static double [] getPSNRValue(BufferedImage mainImage, BufferedImage cryImage) {
         MyColor color1 = new MyColor();
         MyColor color2 = new MyColor();
 
@@ -28,7 +28,6 @@ public class Info {
         countRed = 10 * Math.log10( (255 * 255) / countRed);
         countGreen = 10 * Math.log10( (255 * 255) / countGreen);
         countBlue = 10 * Math.log10( (255 * 255) / countBlue);
-
 
         return new double[] {countRed, countGreen, countBlue};
     }

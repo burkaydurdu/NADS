@@ -36,7 +36,7 @@ public class Server extends Thread {
             OutputStream os = server.getOutputStream();
             ObjectOutputStream oos = new ObjectOutputStream(os);
             oos.writeObject(byteImage);
-
+            server.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

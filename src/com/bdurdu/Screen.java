@@ -2,6 +2,7 @@ package com.bdurdu;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.border.BevelBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -29,6 +30,9 @@ public class Screen extends JFrame implements ActionListener {
     private JTextField inputHostText;
 
     private JButton connection;
+    private JButton showMainImage;
+    private JButton showHiddenImage;
+    private JButton showEncImage;
 
     private JLabel mainImageBox, hiddenImageBox, encryptedImageBox;
     private BufferedImage mainImage, hiddenImage, encryptedImage;
@@ -45,7 +49,7 @@ public class Screen extends JFrame implements ActionListener {
         setSize(new Dimension(1280, 720));
 
         JMenuBar menuBar = onCreateMenu();
-        this.setJMenuBar(menuBar);
+        setJMenuBar(menuBar);
 
         mainImageBox = new JLabel();
         hiddenImageBox = new JLabel();
@@ -54,6 +58,7 @@ public class Screen extends JFrame implements ActionListener {
         add(mainImageBox, BorderLayout.WEST);
         add(hiddenImageBox, BorderLayout.CENTER);
         add(encryptedImageBox, BorderLayout.EAST);
+        onCreateBottomMenu();
 
         currentMod = Mod.AUTO;
 
@@ -155,6 +160,31 @@ public class Screen extends JFrame implements ActionListener {
         return menuBar;
     }
 
+    private void onCreateBottomMenu() {
+        JPanel statusPanel = new JPanel();
+        statusPanel.setBorder(new BevelBorder(BevelBorder.LOWERED));
+        statusPanel.setPreferredSize(new Dimension(getWidth(), 16));
+        statusPanel.setLayout(new BoxLayout(statusPanel, BoxLayout.X_AXIS));
+
+        showMainImage = new JButton("Main Image Show");
+        showMainImage.addActionListener(this);
+        showMainImage.setHorizontalAlignment(SwingConstants.LEFT);
+
+        showHiddenImage = new JButton("Hidden Image Show");
+        showHiddenImage.addActionListener(this);
+        showHiddenImage.setHorizontalAlignment(SwingConstants.LEFT);
+
+        showEncImage = new JButton("Encrypt Image Show");
+        showEncImage.addActionListener(this);
+        showEncImage.setHorizontalAlignment(SwingConstants.LEFT);
+
+        statusPanel.add(showMainImage);
+        statusPanel.add(showHiddenImage);
+        statusPanel.add(showEncImage);
+
+        add(statusPanel, BorderLayout.SOUTH);
+    }
+
     private void openFile(int control) {
         JFileChooser fc = new JFileChooser();
         int result = fc.showOpenDialog(null);
@@ -191,11 +221,23 @@ public class Screen extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(mainImageMenuItem)) {
             openFile(0);
-        } else if (e.getSource().equals(hiddenImageMenuItem)) {
+        }
+        else if (e.getSource().equals(hiddenImageMenuItem)) {
             openFile(1);
-        } else if (e.getSource().equals(cryptedImageMenuItem)) {
+        }
+        else if (e.getSource().equals(cryptedImageMenuItem)) {
             openFile(2);
-        } else if(e.getSource().equals(encryptMenuItem)) {
+        }
+        else if (e.getSource().equals(showMainImage)) {
+            new ShowImage(mainImage, this);
+        }
+        else if (e.getSource().equals(showHiddenImage)) {
+            new ShowImage(hiddenImage, this);
+        }
+        else if (e.getSource().equals(showEncImage)) {
+            new ShowImage(encryptedImage, this);
+        }
+        else if(e.getSource().equals(encryptMenuItem)) {
             if(hiddenImage != null) {
                 Encryption encryption = new Encryption(mainImage, hiddenImage);
                 if (currentMod == Mod.MOD5) {
@@ -229,7 +271,8 @@ public class Screen extends JFrame implements ActionListener {
                     }
                 }
             } else JOptionPane.showMessageDialog(null, "Resim yok!");
-        } else if(e.getSource().equals(decryptMenuItem)) {
+        }
+        else if(e.getSource().equals(decryptMenuItem)) {
             if(encryptedImage != null) {
                 Decryption decryption = new Decryption(encryptedImage);
                 if(decryption.getModType() == 0 ) {
