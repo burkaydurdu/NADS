@@ -229,13 +229,13 @@ public class Screen extends JFrame implements ActionListener {
             openFile(2);
         }
         else if (e.getSource().equals(showMainImage)) {
-            new ShowImage(mainImage, this);
+            if(mainImage != null) new ShowImage(mainImage, this);
         }
         else if (e.getSource().equals(showHiddenImage)) {
-            new ShowImage(hiddenImage, this);
+            if(hiddenImage != null) new ShowImage(hiddenImage, this);
         }
         else if (e.getSource().equals(showEncImage)) {
-            new ShowImage(encryptedImage, this);
+            if(encryptedImage != null) new ShowImage(encryptedImage, this);
         }
         else if(e.getSource().equals(encryptMenuItem)) {
             if(hiddenImage != null) {
@@ -290,7 +290,7 @@ public class Screen extends JFrame implements ActionListener {
         else if(e.getSource().equals(radioButtonMode7Item)) currentMod = Mod.MOD7;
         else if(e.getSource().equals(radioButtonAutoItem)) currentMod = Mod.AUTO;
         else if(e.getSource().equals(psnrMenuItem)) {
-            if(encryptedImage != null) {
+            if(encryptedImage != null && mainImage != null) {
                 double[] array = Info.getPSNRValue(mainImage, encryptedImage);
                 DecimalFormat decimalFormat = new DecimalFormat(".0000");
                 JOptionPane.showConfirmDialog(null,
@@ -304,11 +304,11 @@ public class Screen extends JFrame implements ActionListener {
         else if(e.getSource().equals(connection)) {
             String host = inputHostText.getText();
             int port = Integer.parseInt(inputPortText.getText());
-            if(currentRole == Role.CLIENT) {
+            if(host != null && currentRole == Role.CLIENT) {
                     Client client = new Client(host, port);
                     client.onCreateConnection();
             } else {
-                if (port != 0 && encryptedImage != null) {
+                if (inputPortText.getText() != null && encryptedImage != null) {
                     Server server = new Server(port, encryptedImage);
                     server.start();
                 }
